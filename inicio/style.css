@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -60,26 +64,117 @@ nav ul a {
   .sencillo ul {
     flex-direction: row;
   }
-  .sencillo ul li{
+  .sencillo ul li {
     margin-bottom: 0;
-}
   }
 }
 
 /**Iconos**/
 
-.iconos .texto span{
-  background-color: black;
-  font-size: .8rem;
-  display: block;
-  margin-top: .5rem;
-}
-
-.iconos ul{
+.iconos ul li a {
   display: flex;
-  
 }
 
-.iconos ul li {
-  flex:1;
+.iconos .icono {
+  flex: 0 1 2rem;
+  justify-content: center;
+}
+
+.iconos .texto span {
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 480px) {
+  .iconos ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .iconos ul li {
+    flex: 0 1 50%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .iconos ul li {
+    flex: 1;
+  }
+}
+
+/* Dropdown */
+
+.dropdown ul {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown ul {
+    flex-direction: row;
+  }
+}
+
+.dropdown ul li {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown ul li {
+    position: relative;
+    display: flex;
+    flex: 1 1 100%;
+  }
+  .dropdown ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ff5e62;
+  }
+  .dropdown ul li:hover ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* Sociales**/
+
+.sociales ul li span {
+  display: none;
+}
+.sociales ul {
+  display: flex;
+  justify-content: flex-end;
+}
+.sociales ul li a:before {
+  font-family: "Font Awesome 5 Brands";
+}
+.sociales ul li a[href*="facebook.com"]::before {
+  content: "\f39e";
+}
+
+.sociales ul li a[href*="twitter.com"]::before {
+  content: "\f099";
+}
+
+.sociales ul li a[href*="youtube.com"]::before {
+  content: "\f167";
+}
+
+.sociales ul li a[href*="instagram.com"]::before {
+  content: "\f16d";
+}
+
+.sociales ul li a[href*="pinterest.com"]::before {
+  content: "\f0d2";
+}
+
+/* Combinado social y dropdown */
+
+.navegacion-social-dropdown {
+  display: flex;
+  justify-content: space-between;
+  background-color: #3f51b5;
 }
